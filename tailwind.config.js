@@ -7,12 +7,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'roboto':['Roboto', 'sans-serif'],
+        'chivo':['Chivo', 'sans-serif']      
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors:{
+        blacki:'rgb(41, 41, 41)'
+      },
     },
   },
   plugins: [],
+  darkMode:`class`
 }

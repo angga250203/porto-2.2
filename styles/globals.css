@@ -2,26 +2,318 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html, body {
+  overflow:hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px black;
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+*{
+  @apply transition-colors;
+  @apply duration-500;
+}
+
+.burger {
+    width: 100%;
+  }
+  .burger::after, 
+  .burger::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 40%;
+    margin: auto;
+    background-color: white;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  .burger::after {
+    top: -5px;
+  }
+  .burger::before {
+    top: 5px;
+  }
+  .burgerActive::after {
+    transform: rotate(45deg);
+    top: -1px;
+  }
+  .burgerActive::before {
+    transform: rotate(-45deg);
+    top: 0px;
+  }
+    
+  .svgCurve{
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 100%;
+    fill: rgb(41, 41, 41);
+    stroke: none;
+}
+
+.footer{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+  gap: 40px;
+}
+
+.link{
+  position: relative;
+  display: flex;
+  align-items: center;}
+
+  .indicator{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px;
+}
+
+
+.headerButtonContainer{
+  transform: scale(0);
+  position: fixed;
+  right: 0px;
+  top:0;
+  
+}
+  
+.header{
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  top: 0;
+  color: white;
+  padding: 35px;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: 300;
+  box-sizing: border-box;
+  align-items: center;}
+ 
+
+  .button{
+    position: relative;
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #1C1D20;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  .button2{
+    position:absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #790888;
+    border-color: turquoise;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:-25px ;
+    right: 12px;
+}
+
+
+.burger2 {
+  width: 100%;
+}
+.burger2::after, 
+.burger2::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 40%;
+  margin: auto;
+  background-color: white;
+  position: relative;
+  transition: transform 0.3s;
+}
+.burger2::after {
+  top: -5px;
+}
+.burger2::before {
+  top: 5px;
+}
+.burgerActive2::after {
+  transform: rotate(45deg);
+  top: -1px;
+}
+.burgerActive2::before {
+  transform: rotate(-45deg);
+  top: 0px;
+}
+
+
+.textContainer{
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s;
+}
+
+.textContainer:hover{
+  transform: rotateX(90deg);
+}
+
+.textContainer:hover .primary{
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.textContainer p{
+  
+  transition: all 0.4s;
+}
+
+.textContainer .secondary{
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transform: rotateX(-90deg) translateY(5.5vw);
+  transform-origin: bottom center;
+}
+
+.textContainer:hover .secondary{
+  opacity: 1;
+  
+}
+
+.sliderContainer{
+  position: absolute;
+  top: calc(100vh - 350px);
+}
+.slider{
+  position: relative;
+  white-space: nowrap;
+}
+
+.slider p{
+  position: relative;
+  margin: 0px;
+  color:black;
+  font-size: 230px;
+  font-weight: 500;
+  
+}
+
+.slider p:nth-of-type(2){
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
+.project:last-of-type{
+  border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.modalSlider{
+  transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+
+.cursor, .cursorLabel{
+
+    width: 80px;
+
+    height: 80px;
+
+    border-radius: 50%;
+
+    background-color: #52796f;
+
+    color: white;
+
+    position: absolute;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    pointer-events: none;
+
+}
+
+
+.cursorLabel{
+
+    background-color: transparent;
+
+}
+
+.button1{
+  top: 80%;
+  left: calc(100% - 200px); 
+  width: 180px;
+  height: 180px;
+  background-color: #1C1D20;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+
+/* sbdvdsbvbsdnbvsdvwd */
+
+.shadowpr{
+  box-shadow: 0px 60px 50px rgba(0, 0, 0, 0.748);
+}
+
+.roundedButton{
+ 
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+
+ 
+}
+
+.circle{
+  width: 100%;
+  height: 150%;
+  position: absolute;
+  border-radius: 50%;
+  top: 100%;
+}
+
+.buttoncon{
+  left: calc(100% - 100px); 
+  top: calc(100% - 15px);
 }
